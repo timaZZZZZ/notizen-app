@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bibliothek</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bibliothek</h1>
+      <div class="notes">
+        <% for (let i = 0; i < 10; i++) { %>
+          <textarea placeholder="Notiz <%= i + 1 %>"></textarea>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
