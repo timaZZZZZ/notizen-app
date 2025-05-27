@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bibliothek</title>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Bibliothek</h1>
-      <div class="notes">
-        <% for (let i = 0; i < 10; i++) { %>
-          <textarea placeholder="Notiz <%= i + 1 %>"></textarea>
-        <% } %>
-      </div>
-    </div>
-  </body>
+<head>
+  <title>Bibliothek</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h2>Meine Notizen</h2>
+  <div id="notes">
+    <% notes.forEach((note, i) => { %>
+      <textarea class="note"><%= note %></textarea>
+    <% }) %>
+  </div>
+
+  <script>
+    const notes = document.querySelectorAll(".note");
+
+    function saveNotes() {
+      const data = Array.from(notes).map(n => n.value);
+      fetch("/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ notes: data })
+      });
+    }
+
+    notes.forEach(n => {
+      n.addEventListener("input", () => {
+        saveNotes();
+      });
+    });
+  </script>
+</body>
 </html>
