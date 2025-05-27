@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Passwort für Zugriff
-const PASSWORD = "geheim";
+const PASSWORD = "Eselchen";
 
 // Versuche, gespeicherte Notizen zu laden
 let notes = Array(10).fill("");
