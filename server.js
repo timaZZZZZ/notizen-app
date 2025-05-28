@@ -5,7 +5,7 @@ const path = require("path");
 
 const app = express();
 const PORT = 3000;
-const PASSWORD = "geheim";
+const PASSWORD = "Eselchen";
 
 let notes = Array(10).fill("");
 if (fs.existsSync("notes.json")) {
